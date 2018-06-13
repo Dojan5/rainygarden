@@ -24,6 +24,7 @@ namespace rainygarden.Controllers
             {
                 var F = new Forecast()
                 {
+                    Key = Result.Forecasts.Count + 1,
                     HighC = forecast.High,
                     LowC = forecast.Low,
                     Summary = forecast.Text,
@@ -41,6 +42,7 @@ namespace rainygarden.Controllers
         }
         public class Forecast
         {
+            public int Key { get; set; }
             public int HighC { get; set; }
             public int LowC { get; set; }
             public int HighF
