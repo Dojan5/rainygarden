@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './WeatherWidget.css';
 
 export class WeatherWidget extends Component {
 	displayName = WeatherWidget.name
