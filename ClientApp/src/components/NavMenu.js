@@ -23,11 +23,11 @@ export class NavMenu extends Component {
                 <Glyphicon glyph='leaf' /> Weather
               </NavItem>
             </LinkContainer>
-            <LinkContainer to={'/fetchdata'}>
+            {/* <LinkContainer to={'/fetchdata'}>
               <NavItem>
                 <Glyphicon glyph='th-list' /> Fetch data
               </NavItem>
-            </LinkContainer>
+            </LinkContainer> */}
           </Nav>
         </Navbar.Collapse>
       </Navbar>
