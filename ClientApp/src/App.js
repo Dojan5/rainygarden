@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router';
-import { Layout } from './components/Layout';
 import { WeatherWidget } from './components/WeatherWidget.jsx';
+import SearchWidget from './components/SearchWidget.jsx';
 
 export default class App extends Component {
   displayName = App.name
 
   render() {
     return (
-      <Layout>
-        <Route exact path='/' component={WeatherWidget} />
-        {/* <Route path='/fetchdata' component={FetchData} /> */}
-      </Layout>
+      <div className="container">
+        <SearchWidget />
+        <WeatherWidget />
+      </div>
     );
   }
 }
