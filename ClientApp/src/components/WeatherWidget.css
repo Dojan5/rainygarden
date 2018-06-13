@@ -17,12 +17,12 @@
 
 .Frost {
     z-index: -1;
-    filter: blur(12px);
+    filter: blur(16px);
     left: -10px;
     top: -10px;
     width: 110%;
     height: 110%;
-    position: absolute;
+    position: relative;
 }
 
 .SearchContainer {

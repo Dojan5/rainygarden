@@ -1,13 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export class SearchWidget extends Component {
-    displayName = SearchWidget.name
+const SearchWidget = (props) => {
+    return (
+        <div className="SearchContainer">
+            <input type="text" name="WeatherSearch" onChange={props.search} />
+        </div>
+    )
+};
 
-    render() {
-        return (
-            <div className="SearchContainer">
-                <input type="text" name="WeatherSearch" />
-            </div>
-        );
-    }
-}
+export default SearchWidget;

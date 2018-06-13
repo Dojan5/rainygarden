@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SearchWidget } from './SearchWidget.jsx';
+import SearchWidget from './SearchWidget.jsx';
 import './WeatherWidget.css';
 
 export class WeatherWidget extends Component {
@@ -7,13 +7,17 @@ export class WeatherWidget extends Component {
 
 	constructor(props) {
 		super(props);
-		this.state = { weather: {}, loading: true };
+		this.state = { weather: {}, loading: true, query: "Nyköping" };
 
-		fetch('api/Weather/GetWeather')
+		fetch('api/Weather/GetWeather/?Query=' + this.state.query)
 			.then(response => response.json())
 			.then(data => {
 				this.setState({ weather: data, loading: false });
 			});
+	}
+
+	searchHandler = (event) => {
+		this.setState({ weather: {}, loading: true, query: event.target.value });
 	}
 
 	static renderWeatherData(weather) {
@@ -39,7 +43,7 @@ export class WeatherWidget extends Component {
 		return (
 			<div>
 				<h1 id="AppTitle">rainy garden</h1>
-				<SearchWidget />
+				<SearchWidget search={this.searchHandler} />
 				{contents}
 			</div>
 		);
