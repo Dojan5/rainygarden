@@ -1,8 +1,14 @@
+#AppTitle {
+    font-size: 48px;
+    text-align: center;
+    text-shadow: 0px 0px 16px rgba(0, 0, 0, 0.8);
+}
+
 .ForecastContainer {
     background-color: rgba(0, 0, 0, 0.45);
-    border-radius: 8px;
+    border-radius: 4px;
     padding: 0px 8px;
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(16px);
     border-left: 1px solid;
     border-right: 1px solid;
     border-color: rgba(255, 255, 255, 0.08);
@@ -17,4 +23,25 @@
     width: 110%;
     height: 110%;
     position: absolute;
+}
+
+.SearchContainer {
+    padding: 24px 0px;
+    text-align: center;
+}
+
+.SearchContainer input {
+    width: 80%;
+    padding: 8px 16px;
+    text-align: center;
+    font-weight: bold;
+    border: 0px;
+    border-radius: 128px;
+    box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.45);
+    background-color: rgba(255, 255, 255, 0.85);
+    color: black;
+}
+
+.SearchContainer input:focus {
+    outline-width: 0;
 }

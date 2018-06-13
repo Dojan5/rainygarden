@@ -5,7 +5,7 @@ export class SearchWidget extends Component {
 
     render() {
         return (
-            <div>
+            <div className="SearchContainer">
                 <input type="text" name="WeatherSearch" />
             </div>
         );

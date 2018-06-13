@@ -38,7 +38,7 @@ export class WeatherWidget extends Component {
 			: WeatherWidget.renderWeatherData(this.state.weather);
 		return (
 			<div>
-				<h1>Forecast</h1>
+				<h1 id="AppTitle">rainy garden</h1>
 				<SearchWidget />
 				{contents}
 			</div>
