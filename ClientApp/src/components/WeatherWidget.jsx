@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { SearchWidget } from './SearchWidget.jsx';
+import './WeatherWidget.css';
 
 export class WeatherWidget extends Component {
 	displayName = WeatherWidget.name
@@ -16,7 +18,8 @@ export class WeatherWidget extends Component {
 
 	static renderWeatherData(weather) {
 		return (
-			<div>
+			<div className="ForecastContainer">
+				<div className="Frost"></div>
 				<h3>{weather.location}</h3>
 				{weather.forecasts.map(forecast =>
 					<div key={forecast.key}>
@@ -36,6 +39,7 @@ export class WeatherWidget extends Component {
 		return (
 			<div>
 				<h1>Forecast</h1>
+				<SearchWidget />
 				{contents}
 			</div>
 		);
