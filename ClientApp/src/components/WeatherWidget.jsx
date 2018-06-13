@@ -19,7 +19,7 @@ export class WeatherWidget extends Component {
 			<div>
 				<h3>{weather.location}</h3>
 				{weather.forecasts.map(forecast =>
-					<div>
+					<div key={forecast.key}>
 						<h4>{forecast.summary}</h4>
 						<p><strong>High:</strong> {forecast.highC}&deg;C | {forecast.highF}&deg;F</p>
 						<p><strong>Low:</strong> {forecast.lowC}&deg;C | {forecast.lowF}&deg;F</p>
