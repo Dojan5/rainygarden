@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
 import logo from '../logo.svg';
-import { Col, Row } from 'react-bootstrap';
 
 export class WeatherWidget extends Component {
 	displayName = WeatherWidget.name
 
 	constructor(props) {
 		super(props);
-		this.state = { weather: {}, loading: true };
+		this.state = { weather: {}, loading: true, query: props.query };
 
-		fetch('api/Weather/GetWeather')
+		fetch('api/Weather/GetWeather/?Query=' + this.state.query)
+			.then(response => response.json())
+			.then(data => {
+				this.setState({ weather: data, loading: false });
+			});
+	}
+	componentWillReceiveProps = (props) => {
+		this.state = { weather: {}, loading: true, query: props.query };
+		fetch('api/Weather/GetWeather/?Query=' + this.state.query)
 			.then(response => response.json())
 			.then(data => {
 				this.setState({ weather: data, loading: false });
@@ -22,18 +29,16 @@ export class WeatherWidget extends Component {
 				<div className="Frost"></div>
 				<h2 className="LocationTitle">{weather.location}</h2>
 				<hr />
-				<Row className="justify-content-center">
+				<div className="row">
 					{weather.forecasts.slice(0, 8).map(forecast =>
-						<Col xs="12" sm="3">
-							<div key={forecast.key} className="ForecastCard">
-								<h3>{forecast.summary}</h3>
-								<h4>{forecast.date}</h4>
-								<p><strong>High:</strong> {forecast.highC}&deg;C | {forecast.highF}&deg;F</p>
-								<p><strong>Low:</strong> {forecast.lowC}&deg;C | {forecast.lowF}&deg;F</p>
-							</div>
-						</Col>
+						<div className="col-xs-12 col-sm-3 ForecastCard" key={forecast.key}>
+							<h3>{forecast.summary}</h3>
+							<h4>{forecast.date}</h4>
+							<p><strong>High:</strong> {forecast.highC}&deg;C | {forecast.highF}&deg;F</p>
+							<p><strong>Low:</strong> {forecast.lowC}&deg;C | {forecast.lowF}&deg;F</p>
+						</div>
 					)}
-				</Row>
+				</div>
 			</div>
 		);
 	}
