@@ -15,6 +15,7 @@ namespace rainygarden.Controllers
         [HttpGet("[action]")]
         public async Task<Weather> GetWeather(string Query = "Stockholm")
         {
+            string[] DoW = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" }; 
             YahooWeather w = await YahooWeather.LoadAsync(Query);
             Weather Result = new Weather()
             {
@@ -28,7 +29,7 @@ namespace rainygarden.Controllers
                     HighC = forecast.High,
                     LowC = forecast.Low,
                     Summary = forecast.Text,
-                    Date = forecast.Date
+                    Date = DoW[(int)forecast.Date.DayOfWeek] + " " + forecast.Date.Day.ToString() + "/" + forecast.Date.Month
                 };
                 Result.Forecasts.Add(F);
             }
@@ -60,7 +61,7 @@ namespace rainygarden.Controllers
                 }
             }
             public string Summary { get; set; }
-            public DateTime Date { get; set; }
+            public string Date { get; set; }
         }
     }
 }
