@@ -9,20 +9,41 @@ body {
 }
 
 #AppTitle {
+    font-family: courier;
     font-size: 48px;
     text-align: center;
-    text-shadow: 0px 0px 16px rgba(0, 0, 0, 0.8);
+    text-shadow: 0px 0px 8px rgba(0, 0, 0, 1);
+}
+
+.ForecastLoading {
+    font-size: 14px;
+    width: 256px;
+    text-align: center;
+    position: fixed;
+    top: calc(50vh - (256px / 2));
+    left: calc(50vw - (256px / 2));
+    transform: translage(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.45);
+    border-radius: 4px;
+    padding: 16px;
+    backdrop-filter: blur(16px);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.45);
 }
 
 .ForecastContainer {
     background-color: rgba(0, 0, 0, 0.45);
     border-radius: 4px;
-    padding: 0px 8px;
+    padding: 0px 8px 16px 8px;
     backdrop-filter: blur(16px);
     border-left: 1px solid;
     border-right: 1px solid;
     border-color: rgba(255, 255, 255, 0.08);
     box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.45);
+}
+
+.ForecastCard {
+    text-align: center;
 }
 
 .Frost {
@@ -33,6 +54,11 @@ body {
     width: 110%;
     height: 110%;
     position: relative;
+}
+
+.LocationTitle {
+    text-align: center;
+    padding: 20px 0px 4px 0px;
 }
 
 .SearchContainer {
@@ -54,4 +80,18 @@ body {
 
 .SearchContainer input:focus {
     outline-width: 0;
+}
+
+.App-logo {
+    animation: App-logo-spin infinite 20s linear;
+    height: 80px;
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }

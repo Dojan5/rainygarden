@@ -5,10 +5,17 @@ import SearchWidget from './components/SearchWidget.jsx';
 export default class App extends Component {
   displayName = App.name
 
+  locationSearchHandler = (event) => {
+    this.setState({
+      searchQuery: event.target.value
+    })
+  }
+
   render() {
     return (
       <div className="container">
-        <SearchWidget />
+        <h1 id="AppTitle">rainy garden</h1>
+        <SearchWidget textChanged={this.locationSearchHandler} />
         <WeatherWidget />
       </div>
     );
